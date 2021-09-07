@@ -117,13 +117,16 @@ footer {
 }
 
 .play-button {
-    border: 0px solid transparent;
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0.25rem 0 0.4rem; 
+    margin: 0.3rem 0 0.25rem;
 }
 
-.play-button:hover {
+.play-button .style {
+    border: 0px solid transparent;
+    font-size: 1.5rem;
+    padding: 0; 
+}
+
+.play-button .style:hover {
     color: rgb(141, 140, 140, 1);
     text-decoration: none;
     background-color: rgb(0, 0, 0, 0);
@@ -134,7 +137,7 @@ footer {
 }
 
 /* reactjs popup */
-/* override default css */
+    /* override default css */
 .popup-content  {
     background-color: rgba(255, 255, 255, 0.95);
     height: 55vh;
@@ -145,7 +148,7 @@ footer {
     background: rgba(0, 0, 0, 0.4);
 }
 
-/* my css of popup content */
+    /* my css of popup content */
 .popup-info {
     position: relative;
     width: 100%;
@@ -167,4 +170,114 @@ footer {
 .popup-info .start-button {
     left: 47.5%;
     bottom: 2rem;
+}
+
+/* Circular bar */
+.circular {
+    height: 65vh;
+    width: 65vh;
+    position: relative;
+    margin: -1rem auto 0;
+    text-align: center;
+}
+
+.circular .inner {
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    height: 92%;
+    width: 92%;
+    margin: -46% 0 0 -46%;
+    border-radius: 100%;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(60, 87, 183, 0.8) 0%,
+        rgba(102, 27, 148, 0.8) 100%
+    );
+}
+
+.circular .remaining-time {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-46%, -58%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.circular .progress-bar-info-button {
+    position: absolute;
+    z-index: 10;
+    top: 60%;
+    left: 50%;
+    transform: translate(-47%, 0);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.circular .selected-title {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+}
+
+.circular .btn{
+    color: inherit;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.circular .btn:hover {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+    background-color: (255, 255, 255, 0.1) !important;
+}
+
+.circular .pause-btn {
+    margin-right: 0.7rem;
+}
+
+.circular .continue-btn {
+    margin-left: 0.7rem;
+}
+
+.circle .bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    background-color: white;  
+}
+
+.circle .bar .progress-bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    background-color: rgba(119, 171, 248, 0.5);
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.circle .left .progress-bar {
+    z-index: 1;
+}
+
+@keyframes left {
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
+.circle .right {
+    z-index: 3;
+    transform: rotate(180deg);
+}
+
+@keyframes right {
+    100%{
+        transform: rotate(180deg);
+    }
 }

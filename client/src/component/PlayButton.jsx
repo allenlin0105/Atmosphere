@@ -8,21 +8,18 @@ import 'reactjs-popup/dist/index.css';
 
 const PlayPopup = (props) => {
     const [time, setTime] = useState(30);
+    const [open, setOpen] = useState(false);
 
-    function timeChange(e) {
-        setTime(e.target.value);
-    }
+    const timeChange = (e) => setTime(e.target.value);
+    const buttonPressed = () => setOpen(e => !e);
+    const popUpClosed = () => setOpen(false);
 
     return (
-        <Popup 
-            trigger={
-                <Button variant="outline-secondary" className="play-button">
-                    <MdPlayCircleOutline />
-                </Button>
-            } 
-            modal
-        >
-            {close => (
+        <div className="play-button">
+            <Button variant="outline-secondary" className="style" onClick={buttonPressed}>
+                <MdPlayCircleOutline />
+            </Button>
+            <Popup open={open} closeOnDocumentClick onClose={popUpClosed}>
                 <div className="popup-info">
                     <h3>請選擇時間</h3>
                     <hr className="hr-line" />
@@ -47,17 +44,13 @@ const PlayPopup = (props) => {
                             time: time
                         }
                     }}>
-                        <Button
-                            variant="outline-primary"
-                            className="absolute-position start-button"
-                            size="sm" 
-                        >
+                        <Button variant="outline-primary" className="absolute-position start-button" size="sm">
                             播放
                         </Button>
                     </Link>
                 </div>
-            )}
-        </Popup>
+            </Popup>
+        </div>
     );
 };
 

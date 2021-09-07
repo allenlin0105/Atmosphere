@@ -1,5 +1,5 @@
 import React from "react";
-import PlayPopup from "./PlayPopup";
+import PlayButton from "./PlayButton";
 
 const IntroItem = (props) => {
     return (
@@ -12,12 +12,11 @@ const IntroItem = (props) => {
             <div className="info-background info-color round-corner absolute-position" />
             <div className="info-content absolute-position">
                 <h2>{props.title}</h2>
-                <PlayPopup 
+                <PlayButton
                     title={props.title}
                 />
-                <br />
                 <div className="play-text">
-                    or press space
+                    press the button
                 </div>
             </div>  
         </div>
