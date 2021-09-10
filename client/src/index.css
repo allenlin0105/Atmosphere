@@ -225,22 +225,16 @@ footer {
 }
 
 .circular .btn{
+    transform: translate(-6%, 0);
     color: inherit;
     border-color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.1rem;
 }
 
 .circular .btn:hover {
-    color: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 0.9);
     text-decoration: none;
     background-color: (255, 255, 255, 0.1) !important;
-}
-
-.circular .pause-btn {
-    margin-right: 0.7rem;
-}
-
-.circular .continue-btn {
-    margin-left: 0.7rem;
 }
 
 .circle .bar {

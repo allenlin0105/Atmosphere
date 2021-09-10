@@ -5,7 +5,8 @@ import CircularTimeBar from "./CircularTimeBar";
 
 const PlayScreen = ({location}) => {
     const { 
-        title = "無標題",
+        title = "營火",
+        enTag = "campfire",
         time = 30
     } = location.state || {}
 
@@ -14,6 +15,7 @@ const PlayScreen = ({location}) => {
             <Header />
             <CircularTimeBar 
                 title={title}
+                enTag={enTag}
                 time={time}
             />
             <Footer />
