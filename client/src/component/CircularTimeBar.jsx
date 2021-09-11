@@ -1,16 +1,11 @@
 import React, { useState, useEffect} from "react";
 import Button from 'react-bootstrap/Button';
-// import clock from "../assets/audio/clock.mp3";
+import clock from "../assets/audio/clock.mp3";
 
 const AudioControl = (enTag, remainingTime) => {
     let playButton = document.getElementById("audio");
     const [playing, setPlaying] = useState(false);
     const [audio, setAudio] = useState(null);
-
-    async function importMusic() {
-        const musicFile = await import(`../assets/audio/${enTag}.mp3`);
-        setAudio(new Audio(musicFile.default));
-    }
 
     async function playAudio() {
         try {
@@ -33,6 +28,11 @@ const AudioControl = (enTag, remainingTime) => {
     }
 
     useEffect(() => {
+        async function importMusic() {
+            const musicFile = await import(`../assets/audio/${enTag}.mp3`);
+            setAudio(new Audio(musicFile.default));
+        }
+
         if (audio === null) {
             importMusic();
         } else {
@@ -42,7 +42,7 @@ const AudioControl = (enTag, remainingTime) => {
             }
             return () => audio.removeEventListener('ended', () => setPlaying(false));
         }
-    }, [audio, playing]);
+    }, [audio, playing, enTag, remainingTime]);
 
     return [playing, toggle];
 }
@@ -96,9 +96,10 @@ const CircularTimeBar = (props) => {
         return () => clearInterval(id);
     }, [playing, remainingTime]);
 
-    const toggle = () => {
+    const toggle = (e) => {
         animationToggle();
         audioToggle(); 
+        props.enableExitPrompt(e);
     }
 
     return (

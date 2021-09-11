@@ -29,14 +29,12 @@ body {
 
 /* Title section */
 
-header {
-    height: 7.5rem;
-    padding-top: 2.5rem;
-    padding-left: 3rem;
-    margin-bottom: 3rem;
+.navbar {
+    padding: 2rem 2rem 0 3rem;
+    margin-bottom: 3.5rem;
 }
 
-h1 {
+.navbar-brand {
     background-image: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.75) 0%,
@@ -49,6 +47,16 @@ h1 {
     -moz-text-fill-color: transparent;
     font-size: 2.8rem;
     letter-spacing: 1rem;
+}
+
+.navbar-item {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+}
+
+.navbar-item:hover {
+    color: white !important;
 }
 
 /* Footer Section */
@@ -137,7 +145,7 @@ footer {
 }
 
 /* reactjs popup */
-    /* override default css */
+/* override default css */
 .popup-content  {
     background-color: rgba(255, 255, 255, 0.95);
     height: 55vh;
@@ -148,7 +156,7 @@ footer {
     background: rgba(0, 0, 0, 0.4);
 }
 
-    /* my css of popup content */
+/* my css of popup content */
 .popup-info {
     position: relative;
     width: 100%;
