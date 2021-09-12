@@ -31,7 +31,7 @@ const PlayScreen = ({ location }) => {
                 time={time}
                 enableExitPrompt={enableExitPrompt}
             />
-            <Footer />
+            <Footer positionFixed={true}/>
         </div>
     );
 }

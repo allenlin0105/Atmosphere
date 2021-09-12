@@ -8,7 +8,7 @@ const Home = () => {
         <div>
             <Header />
             <Content />
-            <Footer />
+            <Footer positionFixed={true}/>
         </div>
     );
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from "react";
 import Button from 'react-bootstrap/Button';
-import clock from "../assets/audio/clock.mp3";
 
 const AudioControl = (enTag, remainingTime) => {
     let playButton = document.getElementById("audio");
@@ -86,13 +85,13 @@ const CircularTimeBar = (props) => {
     useEffect(() => {
         if (!playing) {
             return;
+        } else if (remainingTime <= 0) {
+            toggle();
+            return;
         }
         let id = setInterval(() => {
             setRemainingTime(remainingTime => remainingTime - 1);
         }, 1000);
-        if (remainingTime <= 0) {
-            toggle();
-        }
         return () => clearInterval(id);
     }, [playing, remainingTime]);
 

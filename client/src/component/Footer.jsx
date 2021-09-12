@@ -1,8 +1,11 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = (props) => {
+    const positionStyle = {
+        position: props.positionFixed ? "absolute" : "relative",
+    }
     return (
-        <footer>
+        <footer style={positionStyle}>
             Copyright © 2021 Allen Lin. All rights reserved.
         </footer>
     );
