@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import Button from 'react-bootstrap/Button';
+import http from "../service/http-common";
 
 const AudioControl = (enTag, remainingTime) => {
     let playButton = document.getElementById("audio");
@@ -82,11 +83,31 @@ const CircularTimeBar = (props) => {
     const [playing, audioToggle] = AudioControl(props.enTag, remainingTime);
     const [leftAnimationStyle, rightAnimationStyle, animationToggle] = AnimationControl(remainingTime, wholeTime);
 
+    const createRecord = async () => {
+        try {
+            await http.post("/create", {
+                title: props.enTag,
+                time: props.time
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const toggle = (e = null) => {
+        console.log("in");
+        animationToggle();
+        audioToggle(); 
+        props.enableExitPrompt(e);
+    }
+
     useEffect(() => {
         if (!playing) {
             return;
-        } else if (remainingTime <= 0) {
+        }
+        if (remainingTime <= 0) {
             toggle();
+            createRecord();
             return;
         }
         let id = setInterval(() => {
@@ -94,12 +115,6 @@ const CircularTimeBar = (props) => {
         }, 1000);
         return () => clearInterval(id);
     }, [playing, remainingTime]);
-
-    const toggle = (e) => {
-        animationToggle();
-        audioToggle(); 
-        props.enableExitPrompt(e);
-    }
 
     return (
         <div className="circular">
@@ -109,7 +124,9 @@ const CircularTimeBar = (props) => {
             </div>      
             <div className="progress-bar-info-button">
                 <div className="selected-title">{props.title}</div>
-                <Button onClick={toggle} variant="outline-light" size="sm" id="audio">{playing? "暫停" : "播放"}</Button>
+                <Button onClick={toggle} variant="outline-light" size="sm" id="audio">
+                    {playing? "暫停" : "播放"}
+                </Button>
             </div>
             <div className="circle">
                 <div className="bar left">

@@ -8,7 +8,7 @@ const PlayScreen = ({ location }) => {
     const { 
         title = "營火",
         enTag = "campfire",
-        time = 30
+        time = 1
     } = location.state || {}
 
     const [showExitPrompt, setShowExitPrompt] = useExitPrompt(false);

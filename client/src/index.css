@@ -312,6 +312,7 @@ footer {
 .record-container img {
     width: 80%;
     height: 70%;
+    border-radius: 0.5rem;
 }
 
 .record-container .time-text {
