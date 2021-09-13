@@ -95,7 +95,6 @@ const CircularTimeBar = (props) => {
     }
 
     const toggle = (e = null) => {
-        console.log("in");
         animationToggle();
         audioToggle(); 
         props.enableExitPrompt(e);
