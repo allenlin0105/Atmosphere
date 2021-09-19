@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import Button from 'react-bootstrap/Button';
-import http from "../service/http-common";
+import axios from "axios";
 
 const AudioControl = (enTag, remainingTime) => {
     let playButton = document.getElementById("audio");
@@ -85,7 +85,7 @@ const CircularTimeBar = (props) => {
 
     const createRecord = async () => {
         try {
-            await http.post("/create", {
+            await axios.post("/api/create", {
                 title: props.enTag,
                 time: props.time
             });

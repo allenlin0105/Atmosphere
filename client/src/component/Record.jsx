@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Footer from "./Footer";
+import axios from "axios";
 import Header from "./Header";
-import http from "../service/http-common";
 import RecordCard from "./RecordCard";
+import Footer from "./Footer";
 
 const GetAllRecords = () => {
     const [records, setRecords] = useState([]);
     const getAll = async () => {
         try {
-            const Data = await http.get("/record");
+            const Data = await axios.get("/api/record");
             const data = Data.data;
+            console.log(data);
             for (let i = 0; i < data.length; i++) {
                 const imageName = data[i]['title'];
                 const imageFile = await import(`../assets/img/${imageName}.jpg`);
@@ -34,7 +35,7 @@ const Record = () => {
             return record.id !== deleteId;
         }));
         try {
-            await http.delete(`/record/${deleteId}`);
+            await axios.delete(`/api/record/${deleteId}`);
         } catch (error) {
             console.log(error);
         }

@@ -1,2 +1,0 @@
-(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[4],{112:function(t,e,i){"use strict";i.r(e),e.default=i.p+"static/media/campfire.30e97291.mp3"}}]);
-//# sourceMappingURL=4.e0fad9df.chunk.js.map

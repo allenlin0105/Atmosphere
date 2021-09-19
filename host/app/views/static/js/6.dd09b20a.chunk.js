@@ -1,2 +1,0 @@
-(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[6],{114:function(t,c,e){"use strict";e.r(c),c.default=e.p+"static/media/ocean.4f2a99f1.mp3"}}]);
-//# sourceMappingURL=6.dd09b20a.chunk.js.map
