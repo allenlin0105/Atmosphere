@@ -1,7 +1,7 @@
 const db = require("../models/database");
 
 // Create new record from db
-exports.create = (req, res) => {
+module.exports.create = (req, res) => {
     const record = {
         title: req.body.title,
         time: req.body.time
@@ -18,7 +18,7 @@ exports.create = (req, res) => {
 }
 
 // Get all records from db
-exports.findAll = (req, res) => {
+module.exports.findAll = (req, res) => {
     const getAllQuery = "SELECT * FROM Records";
     
     db.query(getAllQuery, (err, result) => {
@@ -32,7 +32,7 @@ exports.findAll = (req, res) => {
 }
 
 // Delete a record from db
-exports.delete = (req, res) => {
+module.exports.delete = (req, res) => {
     const id = req.params.id;
     const deleteQuery = "DELETE FROM Records WHERE id=?;";
     
