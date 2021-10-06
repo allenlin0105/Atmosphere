@@ -4,9 +4,9 @@ A website for playing atmosphere sound, such as ocean or campfire sound.
 ## Demo
 | Home Page | Select Time |
 | --- | --- |
-| ![HomePage](DemoFiles/Homepage.gif) | ![SelectTime](DemoFiles/SelectTime.png) |
+| ![HomePage](DemoFiles/Homepage.png) | ![SelectTime](DemoFiles/SelectTime.png) |
 | Playing | Record Page |
-| ![Playing](DemoFiles/Play.gif) | ![Record](DemoFiles/Record.png) |
+| ![Playing](DemoFiles/Play.png) | ![Record](DemoFiles/Record.png) |
 
 ## How to run the website
 1. git clone or download the project
